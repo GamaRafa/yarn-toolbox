@@ -7,7 +7,13 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+// $soft-mint: #9ed8b6;
+// $lavender-mist: #c9a7e3;
+// $peach-sorbet: #f5c6aa;
+// $powder-blue: #add8e6;
+// $buttercream: #f8e3a1;
 :root {
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -247,10 +253,3 @@ html {
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
-
-// Color palette
-$soft-mint: #9ed8b6;
-$lavender-mist: #c9a7e3;
-$peach-sorbet: #f5c6aa;
-$powder-blue: #add8e6;
-$buttercream: #f8e3a1;

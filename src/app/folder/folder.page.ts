@@ -11,7 +11,25 @@ export class FolderPage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   constructor() {}
 
+  getPageName(): string {
+    let id = this.activatedRoute.snapshot.paramMap.get('id')
+    switch (id){
+      case 'yarn-stash':
+        return 'Yarn Stash'
+      case 'row-counter':
+        return 'Contador de carreiras'
+      case 'rep-counter':
+        return 'Contador de repetições'
+      case 'increase-calculator':
+        return 'Calculadora de aumentos'
+      case 'decrease-calculator':
+        return 'Calculadora de diminuições'
+      default:
+        return 'Home'
+    }
+  }
+
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    this.folder = this.getPageName()
   }
 }
