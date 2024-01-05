@@ -5,7 +5,7 @@
       <ion-list>
 
         <ion-menu-toggle auto-hide="false" *ngFor="let page of appPages">
-          <ion-item [routerLink]="page.path" routerLinkActive="selected" (click)="title=page.title">
+          <ion-item [routerLink]="page.path" routerLinkActive="selected" (click)="updatePageTitle(page.title)">
             <ion-label>{{ page.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>

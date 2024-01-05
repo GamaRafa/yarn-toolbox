@@ -1,3 +1,14 @@
-<p>
-  row-counter works!
-</p>
+<div class="flex flex-col mt-20">
+
+  <ion-title>{{ rowNumber }}</ion-title>
+
+  <div class="flex flex-row justify-center">
+    <ion-button size="large" fill="clear" (click)="minus()" color="danger">
+      <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button size="large" fill="clear" (click)="plus()" color="secondary">
+      <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+</div>

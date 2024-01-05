@@ -1,12 +1,13 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { PageTitleService } from './core/services/page-title.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  title = 'Home'
+  title!: string
   
   appPages = [
     {
@@ -33,8 +34,16 @@ export class AppComponent {
       title: 'Calculadora de diminuições',
       path: 'decrease-calculator'
     },
-
   ]
-  constructor() {}
+  constructor(private pageTitleService: PageTitleService) {}
+
+  updatePageTitle(title: string){
+    this.pageTitleService.setPageTitle(title)
+    this.title = title
+  }
+
+  ngOnInit() {
+    this.title = this.pageTitleService.getPageTitle()
+  }
 
 }
