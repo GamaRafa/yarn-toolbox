@@ -14,20 +14,21 @@ import { IonicModule } from '@ionic/angular';
 })
 export class RowCounterComponent  implements OnInit {
 
+  projectName: string = 'Nome do projeto'
   rowNumber: number = 0 //vai começar em zero
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {} // usar onInit pra buscar as informações de cada projeto
 
-  minus():void {
+  minus(): void {
     this.rowNumber -= 1
     if (this.rowNumber < 0){
       this.rowNumber = 0
     }
   }
 
-  plus():void {
+  plus(): void {
     this.rowNumber += 1
   }
 

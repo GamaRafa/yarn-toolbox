@@ -1,3 +1,20 @@
-<p>
-  rep-counter works!
-</p>
+<div class="flex flex-col mt-4 px-2">
+
+  <div class="flex flex-row items-start">
+    <h1>{{ projectName }}</h1>
+  </div>
+
+  <ion-title>{{ rowNumber }}</ion-title>
+
+  <h2>{{ repeatNumber }}</h2>
+
+  <div class="flex flex-row justify-center">
+    <ion-button size="large" fill="clear" (click)="minus()" color="medium">
+      <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button size="large" fill="clear" (click)="plus()">
+      <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+</div>

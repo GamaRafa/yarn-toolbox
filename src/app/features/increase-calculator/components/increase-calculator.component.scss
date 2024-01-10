@@ -1,0 +1,9 @@
+@import '../../../../theme/variables.scss';
+
+.item-md.item-input.input-has-focus .item-inner {
+  box-shadow: none;
+}
+
+ion-button{
+  --background: #c9a7e3;
+}

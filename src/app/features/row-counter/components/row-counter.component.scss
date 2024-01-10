@@ -1,5 +1,11 @@
 @import '../../../../theme/variables.scss';
 
+h1{
+  color: $lavender-mist;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
 ion-title{
   color: $lavender-mist;
   font-size: 8rem;
@@ -7,5 +13,5 @@ ion-title{
 
 ion-button{
   font-size: 4rem;
-  --opacity: 0.7;
+  color: $lavender-mist;
 }
