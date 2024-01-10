@@ -7,3 +7,15 @@
 ion-button{
   --background: #c9a7e3;
 }
+
+ion-input.ng-valid .ion-valid {
+  border-color: none; /* or use your desired border color */
+}
+
+ion-input.ng-invalid .ion-invalid {
+  border-color: none; /* or use your desired border color */
+}
+
+.input-highlight {
+  color: none;
+}

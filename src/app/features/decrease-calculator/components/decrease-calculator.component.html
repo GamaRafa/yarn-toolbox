@@ -23,7 +23,13 @@
       labelPlacement="fixed"></ion-input>
     </div>
 
-    <ion-button class="self-center mt-10" (click)="showValues()">Calcular</ion-button>
+    <ion-button class="self-center my-5" (click)="calculateDecreases()">Calcular</ion-button>
+    
+    <ion-card  *ngIf="instructions" color="light">
+      <ion-card-content>
+        {{ instructions }}
+      </ion-card-content>
+    </ion-card>
 
   </div>
 
