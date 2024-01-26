@@ -1,13 +1,7 @@
-@import '../../../../theme/variables.scss';
-
 ion-fab {
   margin-bottom: var(--ion-safe-area-bottom, 0);
 }
 
 ion-fab-button {
   --background: #add8e6;
-}
-
-ion-input{
-  border: none;
 }

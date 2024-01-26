@@ -15,7 +15,7 @@ import { IonicModule } from '@ionic/angular';
 export class RowCounterComponent  implements OnInit {
 
   projectName: string = 'Nome do projeto'
-  rowNumber: number = 0 //vai começar em zero
+  rowNumber: number = 1 //vai começar em um
 
   constructor() { }
 
@@ -23,8 +23,8 @@ export class RowCounterComponent  implements OnInit {
 
   minus(): void {
     this.rowNumber -= 1
-    if (this.rowNumber < 0){
-      this.rowNumber = 0
+    if (this.rowNumber < 1){
+      this.rowNumber = 1
     }
   }
 

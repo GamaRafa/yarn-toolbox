@@ -1,0 +1,15 @@
+<!-- <ion-header> -->
+  <!-- <ion-title>Projetos</ion-title> -->
+<!-- </ion-header> -->
+
+<ion-list>
+  <ion-item>
+    <ion-label (click)="toProject()">{{ projectName }}</ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button id="open-modal">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

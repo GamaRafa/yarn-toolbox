@@ -17,8 +17,8 @@ import { IGX_CIRCULAR_PROGRESS_BAR_DIRECTIVES } from 'igniteui-angular';
 export class RepCounterComponent  implements OnInit {
 
   projectName: string = 'Nome do projeto'
-  rowNumber: number = 0
-  repeatNumber: number = 0
+  rowNumber: number = 1
+  repeatNumber: number = 1
   rowsPerRepeat: number = 6   // vai ser setado pela configuração de cada projeto
   currentValue: number;
 
@@ -37,14 +37,14 @@ export class RepCounterComponent  implements OnInit {
 
 public decrementProgress() {
     this.currentValue -= 1;
-    if (this.currentValue < 0) {
-        this.currentValue = 0;
+    if (this.currentValue < 1) {
+        this.currentValue = 1;
     }
 }
 
   minus(): void {
     this.rowNumber -= 1
-    if (this.rowNumber < 0){
+    if (this.rowNumber < 1){
       this.decreaseRepeat()
     }
   }
@@ -58,15 +58,15 @@ public decrementProgress() {
 
   increaseRepeat(): void {
     this.repeatNumber += 1
-    this.rowNumber = 0
+    this.rowNumber = 1
   }
 
   decreaseRepeat(): void {
     this.repeatNumber -= 1
     this.rowNumber = this.rowsPerRepeat
-    if (this.repeatNumber < 0){
-      this.repeatNumber = 0
-      this.rowNumber = 0
+    if (this.repeatNumber < 1){
+      this.repeatNumber = 1
+      this.rowNumber = 1
     }
   }
 

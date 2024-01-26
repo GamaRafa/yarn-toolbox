@@ -1,23 +1,22 @@
 @import '../../../../theme/variables.scss';
 
-h1{
-  color: $lavender-mist;
+.title{
   font-size: 2rem;
-  font-weight: 900;
+  color: #92949C;
 }
 
 ion-title{
-  color: $lavender-mist;
+  color: $powder-blue;
   font-size: 8rem;
 }
 
 h2 {
-  color: $lavender-mist;
+  color: $powder-blue;
   font-size: 4rem;
   opacity: 0.5;
 }
 
 ion-button{
   font-size: 4rem;
-  color: $lavender-mist;
+  color: $powder-blue;
 }

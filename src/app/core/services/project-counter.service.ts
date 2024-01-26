@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
-import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
-import { BehaviorSubject, Observable, filter, from, of, switchMap } from 'rxjs';
-import { YarnModel } from '../models/yarn.model';
+import { ProjectCounterModel } from './../models/project-counter.model';
+import { Injectable } from "@angular/core";
+import { Storage } from "@ionic/storage-angular";
+import * as CordovaSQLiteDriver from "localforage-cordovasqlitedriver";
+import { BehaviorSubject, Observable, filter, from, of, switchMap } from "rxjs";
 
-const STORAGE_KEY = 'yarnStash'
+const STORAGE_KEY = 'projectCounter'
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
-
+export class ProjectCounterService {
+  
   private storageReady = new BehaviorSubject(false)
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage){
     this.init()
   }
 
@@ -24,13 +24,14 @@ export class DataService {
   }
 
   // CREATE
-  async addData(yarn: YarnModel){
+  async addData(project: ProjectCounterModel){
     const storedData = (await this.storage.get(STORAGE_KEY)) || []
-    storedData.push(yarn)
+    storedData.push(project)
     return this.storage.set(STORAGE_KEY, storedData)
   }
+
   // READ
-  getData(): Observable<YarnModel[]>{
+  getData(): Observable<ProjectCounterModel[]>{
     return this.storageReady.pipe(
       filter(ready => ready),
       switchMap(_ => {
@@ -38,6 +39,7 @@ export class DataService {
       })
     )
   }
+
   // UPDATE
 
   // DELETE
@@ -46,5 +48,4 @@ export class DataService {
     storedData.splice(index, 1)
     return this.storage.set(STORAGE_KEY, storedData)
   }
-
 }

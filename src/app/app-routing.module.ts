@@ -6,6 +6,7 @@ import { RepCounterComponent } from './features/rep-counter/components/rep-count
 import { RowCounterComponent } from './features/row-counter/components/row-counter.component';
 import { IncreaseCalculatorComponent } from './features/increase-calculator/components/increase-calculator.component';
 import { DecreaseCalculatorComponent } from './features/decrease-calculator/components/decrease-calculator.component';
+import { ProjectsPageComponent } from './features/project-page/projects-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   },
   {
     path: 'row-counter',
+    component: ProjectsPageComponent
+  },
+  {
+    path: 'row-counter/:project',
     component: RowCounterComponent
   },
   {
