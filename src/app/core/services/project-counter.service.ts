@@ -2,7 +2,7 @@ import { ProjectCounterModel } from './../models/project-counter.model';
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
 import * as CordovaSQLiteDriver from "localforage-cordovasqlitedriver";
-import { BehaviorSubject, Observable, filter, from, of, switchMap } from "rxjs";
+import { BehaviorSubject, Observable, filter, from, map, of, switchMap } from "rxjs";
 
 const STORAGE_KEY = 'projectCounter'
 
@@ -36,6 +36,18 @@ export class ProjectCounterService {
       filter(ready => ready),
       switchMap(_ => {
         return from(this.storage.get(STORAGE_KEY)) || of([])
+      })
+    )
+  }
+
+  getOne(projectName: string): Observable<ProjectCounterModel>{
+    return this.storageReady.pipe(
+      filter(ready => ready),
+      switchMap(_ => {
+        return from(this.storage.get(STORAGE_KEY)) || of([])
+      }),
+      map(data => {
+        return data.find((item: { projectName: string; }) => item.projectName === projectName)
       })
     )
   }

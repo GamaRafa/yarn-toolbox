@@ -3,12 +3,15 @@
 <!-- </ion-header> -->
 
 <ion-list>
-  <ion-item>
-    <ion-label (click)="toProject()">{{ projectName }}</ion-label>
+  <ion-item *ngFor="let project of projects; let i = index">
+    <ion-label  
+    (click)="toProject(project.projectName)"
+    >{{ project.projectName}}
+    </ion-label>
   </ion-item>
 </ion-list>
 
-<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+<ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="addMockProject()">
   <ion-fab-button id="open-modal">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>

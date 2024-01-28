@@ -1,6 +1,9 @@
+import { ProjectCounterService } from './../../../core/services/project-counter.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { ProjectCounterModel } from 'src/app/core/models/project-counter.model';
 
 @Component({
   selector: 'app-row-counter',
@@ -15,11 +18,19 @@ import { IonicModule } from '@ionic/angular';
 export class RowCounterComponent  implements OnInit {
 
   projectName: string = 'Nome do projeto'
-  rowNumber: number = 1 //vai começar em um
+  rowNumber: number = 1
+  paramValue: string
+  project: ProjectCounterModel
 
-  constructor() { }
+  constructor(
+    private projectCounterService: ProjectCounterService,
+    private route: ActivatedRoute
+  ) { }
 
-  ngOnInit() {} // usar onInit pra buscar as informações de cada projeto
+  ngOnInit() {
+    this.paramValue = this.route.snapshot.params['project']
+    this.fetchData()
+  } // usar onInit pra buscar as informações de cada projeto
 
   minus(): void {
     this.rowNumber -= 1
@@ -30,6 +41,15 @@ export class RowCounterComponent  implements OnInit {
 
   plus(): void {
     this.rowNumber += 1
+  }
+
+  async fetchData(){
+    this.projectCounterService.getOne(this.paramValue).subscribe(res => {
+      this.project = res
+      console.log(this.project)
+      this.projectName = this.project.projectName
+      this.rowNumber = this.project.currentRow
+    })
   }
 
 }
