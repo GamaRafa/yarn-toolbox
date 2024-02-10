@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { PageTitleService } from './core/services/page-title.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -7,7 +6,7 @@ import { PageTitleService } from './core/services/page-title.service';
 })
 export class AppComponent implements OnInit{
 
-  title!: string
+  title: string = 'Home'
   
   appPages = [
     {
@@ -35,15 +34,9 @@ export class AppComponent implements OnInit{
       path: 'decrease-calculator'
     },
   ]
-  constructor(private pageTitleService: PageTitleService) {}
-
-  updatePageTitle(title: string){
-    this.pageTitleService.setPageTitle(title)
-    this.title = title
-  }
+  constructor() {}
 
   ngOnInit() {
-    this.title = this.pageTitleService.getPageTitle()
   }
 
 }

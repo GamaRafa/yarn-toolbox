@@ -16,6 +16,7 @@ export class IncreaseCalculatorComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

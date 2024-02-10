@@ -1,36 +1,31 @@
 <div class="flex flex-col mt-4 px-2">
-
-  <div class="flex flex-col items-start w-full">
-    <div class="flex flex-row items-center">
-      <ion-label>Quantidade atual de pontos: </ion-label>
-      <ion-input 
-      [(ngModel)]="current"
-      style="border: none; width: 80px; margin-left: 12px;"
-      color="light"
-      type="number"
-      clear-on-edit="true"
-      labelPlacement="fixed"></ion-input>
-    </div>
-
-    <div class="flex flex-row items-center">
-      <ion-label>Quantidade de diminuições: </ion-label>
-      <ion-input 
-      [(ngModel)]="decreases"
-      style="border: none; width: 80px; margin-left: 12px"
-      color="light"
-      type="number"
-      clear-on-edit="true"
-      labelPlacement="fixed"></ion-input>
-    </div>
-
-    <ion-button class="self-center my-5" (click)="calculateDecreases()">Calcular</ion-button>
+  <form [formGroup]="decreaseForm">
+    <div class="flex flex-col items-start w-full">
+      <div class="flex flex-row items-center">
+        <label>Quantidade atual de pontos: </label>
+        <input 
+        formControlName="current"
+        style="border: none; width: 80px; margin-left: 12px;"
+        type="number"
+        >
+      </div>
     
-    <ion-card  *ngIf="instructions" color="light">
-      <ion-card-content>
-        {{ instructions }}
-      </ion-card-content>
-    </ion-card>
+      <div class="flex flex-row items-center mt-4">
+        <label>Quantidade de diminuições: </label>
+        <input 
+        formControlName="decreases"
+        style="border: none; width: 80px; margin-left: 12px"
+        type="number"
+        >
+      </div>
 
-  </div>
-
+      <ion-button class="self-center mt-4" (click)="calculateDecreases()">Calcular</ion-button>
+    
+      <ion-card  *ngIf="instructions" color="light">
+        <ion-card-content>
+          {{ instructions }}
+        </ion-card-content>
+      </ion-card>  
+   </div>
+  </form>
 </div>

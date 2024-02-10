@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -11,10 +11,12 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     IonicModule,
-    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class DecreaseCalculatorComponent  implements OnInit {
+
+  decreaseForm: FormGroup
 
   current: number
   decreases: number
@@ -23,14 +25,19 @@ export class DecreaseCalculatorComponent  implements OnInit {
   remainderDistributed: number
   instructions: string = ''
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {
-    console.log(`decreases: ${this.decreases}`)
-   }
+  constructor() {
+  }
 
   ngOnInit() {
-    this.removeInputHighlight()
+    this.decreaseForm = new FormGroup({
+      'current': new FormControl('', [Validators.required]),
+      'decreases': new FormControl('', [Validators.required])
+    })
   }
+
   calculateDecreases() {
+    this.current = this.decreaseForm.get('current')?.value
+    this.decreases = this.decreaseForm.get('decreases')?.value
     this.frequency = Math.floor(this.current / this.decreases)
     this.remainder = this.current % this.decreases
 
@@ -41,9 +48,5 @@ export class DecreaseCalculatorComponent  implements OnInit {
       this.remainderDistributed = Math.floor(this.remainder / 2)
       this.instructions = `Trabalhe os ${this.remainderDistributed} primeiros pontos, *k${this.frequency - 2}, k2tog* ${this.decreases} vezes. Trabalhe os ${this.remainderDistributed + 1} pontos restantes.`
     }
-  }
-  removeInputHighlight() {
-    const inputElement = this.el.nativeElement.querySelector('ion-input');
-    this.renderer.removeClass(inputElement, 'input-highlight');
   }
 }
