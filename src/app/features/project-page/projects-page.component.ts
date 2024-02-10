@@ -41,6 +41,7 @@ export class ProjectsPageComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData()
+    // this.deleteProject(2)
   }
 
   addMockProject(){
@@ -52,4 +53,8 @@ export class ProjectsPageComponent implements OnInit {
       this.projects = res
     })
   }
+
+  // deleteProject(index: number){
+  //   this.projectCounterService.removeData(index)
+  // }
 }
